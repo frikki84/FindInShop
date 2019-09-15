@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "643503499439",
+    "firebase_url": "https://findinshopdiplom.firebaseio.com",
+    "project_id": "findinshopdiplom",
+    "storage_bucket": "findinshopdiplom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643503499439:android:a97a866edaf5830219cc5a",
+        "android_client_info": {
+          "package_name": "com.example.findinshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643503499439-3gt0tshvgcos32vlifcpgtlbe6gflkrk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.findinshop",
+            "certificate_hash": "6d147cffb6d837fc8c54740112740ba369e7b3a7"
+          }
+        },
+        {
+          "client_id": "643503499439-gvdh8m36a12nh5m3jda2cunc850m020t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbsiA-nQugG_ELyj7w_tB7Zs6I8M3J3UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643503499439-gvdh8m36a12nh5m3jda2cunc850m020t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

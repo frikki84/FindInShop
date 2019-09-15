@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/adapterLiner"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/cardview_shadow_end_color">
+
+    <LinearLayout
+        android:id="@+id/mainAdapt"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        >
+
+    <ImageView
+        android:id="@+id/imageProd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:src="@drawable/net_izobrazheniya" />
+
+
+
+    <TextView
+        android:id="@+id/prodName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/textNoProduct"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="@color/button"
+        />
+
+    <TextView
+        android:id="@+id/recyclerForShopPrice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:textColor="@color/mainBold" />
+
+</LinearLayout>
+
+    <TextView
+
+        android:id="@+id/linkInvisible"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:visibility="invisible"
+        android:textSize="1dp" />
+</LinearLayout>

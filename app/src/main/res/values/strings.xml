@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FindInShop</string>
+    <string name="textForRequest">Что вы ищите?</string>
+    <string name="hintInRequest">Что вы ищите?</string>
+    <string name="textNoProduct">Товар не найден </string>
+    <string name="textNoProductInShop"> --- --- --- </string>
+    <string name="Find">Найти товар</string>
+    <string name="Back">Вернуться обратно</string>
+    <string name="repeatRequest">Неверный запрос. Введите запрос еще раз </string>
+    <string name="title_activity_registration_form">RegistrationForm</string>
+    <string name="email">Email</string>
+    <string name="changeUser">Сменить пользователя</string>
+    <string name="userManual">Руководство пользователя </string>
+    <string name="userManual1point">1. Введите название товара, который Вы хотите найти в торговых сетях</string>
+</resources>
