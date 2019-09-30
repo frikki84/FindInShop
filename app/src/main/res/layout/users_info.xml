@@ -33,10 +33,137 @@
             />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/manualImage1"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_one"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+        android:id="@+id/userManual2point"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/userManual2point"
+        android:textSize="20dp"
+        />
+
+        <ImageView
+            android:id="@+id/manualImage2"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_two"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/userManual3point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/adapt" />
+            android:text="@string/userManual3point"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/manualImage3"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_three"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+        android:id="@+id/userManual4point"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/userManual4point"
+        android:textSize="20dp"
+        />
+
+        <TextView
+            android:id="@+id/userManual7point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userManual7point"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/manualImage7"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_seven"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <TextView
+            android:id="@+id/userManual5point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userManual5point"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/manualImage5"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_five"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/userManual6point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userManual6point"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/manualImage4"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_six"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <TextView
+            android:id="@+id/userManual9point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userManual9point"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/manualImage8"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_ten"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/userManual8point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userManual8point"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/manualImage6"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/manual_eight"
+            android:layout_gravity="center_horizontal"/>
+
+
+
+
+        <Button
+
+            android:id="@+id/btnFromManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="60dp"
+            android:text="@string/btnManual" />
 
 
     </LinearLayout>

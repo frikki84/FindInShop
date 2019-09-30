@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:643503499439:android:01b44b88034d54cb19cc5a",
+        "android_client_info": {
+          "package_name": "com.dziadkouskaya.findinshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643503499439-cs6jp9gr36v3jb3a2rahu6djd5jmmop0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dziadkouskaya.findinshop",
+            "certificate_hash": "2d5f862ccb14298ec1f062e057255e1cf8f308f8"
+          }
+        },
+        {
+          "client_id": "643503499439-gvdh8m36a12nh5m3jda2cunc850m020t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbsiA-nQugG_ELyj7w_tB7Zs6I8M3J3UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643503499439-gvdh8m36a12nh5m3jda2cunc850m020t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:643503499439:android:a97a866edaf5830219cc5a",
         "android_client_info": {
           "package_name": "com.example.findinshop"

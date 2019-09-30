@@ -12,4 +12,23 @@
     <string name="changeUser">Сменить пользователя</string>
     <string name="userManual">Руководство пользователя </string>
     <string name="userManual1point">1. Введите название товара, который Вы хотите найти в торговых сетях</string>
+    <string name="userManual2point">2. Выберите нужный товар из списка и нажмите на него</string>
+    <string name="userManual3point">3. В появившемся окне нажмите на кнопку с названием торговой
+        сети для перехода на сайт этой торговой сети</string>
+    <string name="userManual4point">4. Для возврата в предыдущее меню воспользуйтесь кнопкой
+        \"Вернуться обратно\"</string>
+    <string name="userManual7point">5. Для возврата в приложение со страницы сайта магазина воспользуйтесь
+    кнопкой возврата из контекстного меню </string>
+    <string name="userManual5point">6. Для смены пользователя нажмите на кнопку \"Сменить пользователя\"
+    на главном экране</string>
+    <string name="userManual6point">7. Для просмотра руководства пользователя нажмите на кнопку
+    \"Руководство пользователя\" на  главном экране</string>
+    <string name="userManual8point">8. Информация о торговых сетях, в которых осуществляется поиск товара,
+    размещена в нижней части главного экрана </string>
+    <string name="userManual9point">9. Для оценки приложения в PlayMarket нажмите на кнопку
+        \"Оценить приложение\"</string>
+    <string name="btnManual">Все понятно</string>
+    <string name="rateApp">Оценить приложение</string>
+    <string name="privitePoliticy">Я принимаю услования Политики конфиденциальности</string>
+
 </resources>

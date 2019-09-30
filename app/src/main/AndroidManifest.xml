@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.findinshop">
+    package="com.dziadkouskaya.findinshop">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/find_in_shop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.dziadkouskaya.findinshop.UserManual"></activity>
         <activity
-            android:name=".RegistrationForm"
-            android:label="@string/title_activity_registration_form"
+            android:name="com.dziadkouskaya.findinshop.RegistrationForm"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,16 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityWithProductInfo" />
-        <activity android:name=".ResultList" />
+        <activity android:name="com.dziadkouskaya.findinshop.ActivityWithProductInfo" />
+        <activity android:name="com.dziadkouskaya.findinshop.ResultList" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:name="com.dziadkouskaya.findinshop.MainActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
