@@ -1,6 +1,8 @@
 package com.dziadkouskaya.findinshop.by.parsing.model.entity.shops;
 
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 
@@ -17,11 +19,12 @@ public class OstrovChistoty extends ShopNet {
 
     public static final String OCH_MAIN_URL = "https://ostrov-shop.by";
 
-    public static final String OCH_URL_START = "https://ostrov-shop.by/catalog/?q=";
-    public static final String OCH_URL_FINISH = "&how=";
+    public static final String OCH_URL_START = "https://ostrov-shop.by/catalog/?PAGEN_2=";
+    public static final String OCH_URL_FINISH = "&q=";
 
     public static final String OCH_ITEM_COMMON = "catalog_item_wrapp";
 
+    public static final int NUMBER_OF_FIRST_PAGE_OF_SEACH = 1;
 
 
     public OstrovChistoty() {
@@ -35,7 +38,6 @@ public class OstrovChistoty extends ShopNet {
     }
 
 
-
     @Override
     public String toString() {
         return "OstrovChistoty [toString()=" + super.toString() + ", hashCode()=" + hashCode() + ", getShopName()="
@@ -45,58 +47,77 @@ public class OstrovChistoty extends ShopNet {
     }
 
 
-
-
-
     @Override
-    public ArrayList <ArrayList<String>> searchProduct(Request request) {
-        ArrayList <String> responseContainer = new ArrayList<>();
+    public ArrayList<ArrayList<String>> searchProduct(Request request) {
+        ArrayList<String> responseContainer = new ArrayList<>();
         ArrayList<ArrayList<String>> container = new ArrayList<ArrayList<String>>();
 
-        String urlRequest = getUrlStart() + request.getRequest() + getUrlFinish();
+        String urlRequest = getUrlStart() + NUMBER_OF_FIRST_PAGE_OF_SEACH + getUrlFinish() + request.getRequest();
+
         try {
+            //document of 1 search page
             Document document = Jsoup.connect(urlRequest).get();
 
-            Elements elements = document.select("div[class = " + getItemCommon() +"]");
+            //create container for pages because there's no 1 page on site
+            ArrayList<String> containerForPages = new ArrayList<>();
+            containerForPages.add("1");
 
-            String name;
-            String price;
-            String image;
-            String link;
+            //search all pages with results for search in the shop
+            Elements searchPages = document.select("div[class = module-pagination] > span[class = nums] > a");
 
-            for (Element element : elements) {
-                name = element.select("img").attr("title");
-
-                name = StringCorrect.stringCorrectForParsing(name);
-
-                image = getMainUrl() + element.select("img").attr("src");
-
-                link = getMainUrl() + element.select("a").attr("href");
-
-                price = element.select("div[class = price]").text();
-                price = StringCorrect.priceRubCorrection(price);
-
-                responseContainer.add(name);
-                responseContainer.add(price);
-                responseContainer.add(image);
-                responseContainer.add(link);
-
-                ArrayList<String> mArr = new ArrayList<String>();
-                mArr = (ArrayList<String>) responseContainer.clone();
-
-                container.add(mArr);
-
-                responseContainer.clear();
+            for (Element page : searchPages) {
+                String eachPage = page.text();
+                containerForPages.add(eachPage);
             }
 
+                for (String pageInContainer : containerForPages) {
+
+                    //request for each page with results for search in the shop
+                    String pagesWithResualtsOfSearch = getUrlStart() + pageInContainer + getUrlFinish() + request.getRequest();
+
+                    //search elements on each page of search
+                    Document docEachPage = Jsoup.connect(pagesWithResualtsOfSearch).get();
+
+                    Elements elements = docEachPage.select("div[class = " + getItemCommon() + "]");
+
+                    String name;
+                    String price;
+                    String image;
+                    String link;
+
+                    for (Element element : elements) {
+                        name = element.select("img").attr("title");
+
+                        name = StringCorrect.stringCorrectForParsing(name);
+
+                        image = getMainUrl() + element.select("img").attr("src");
+
+                        link = getMainUrl() + element.select("a").attr("href");
+
+                        price = element.select("div[class = price]").text();
+                        price = StringCorrect.priceRubCorrection(price);
+
+                        responseContainer.add(name);
+                        responseContainer.add(price);
+                        responseContainer.add(image);
+                        responseContainer.add(link);
+
+                        ArrayList<String> mArr = new ArrayList<String>();
+                        mArr = (ArrayList<String>) responseContainer.clone();
+
+                        container.add(mArr);
+
+                        responseContainer.clear();
+                    }
+
+                }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return container;
     }
-
-
 
 }
 

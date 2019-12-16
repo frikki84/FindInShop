@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import java.util.logging.LogManager;
 
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.request.Request;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.results.ResultInfo;
+import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Buslic;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Edostavka;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Hypermall;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Mila;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     OstrovChistoty chistoty;
     Mila mila;
     Edostavka edostavka;
+    Buslic buslic;
 
     ShopList list;
     ShopList listCopy;
@@ -75,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textForParsing = findViewById(R.id.textForParsing);
+        textForParsing.setSelected(true);
+        textForParsing.setFocusable(true);
 
 
         list = new ShopList();
@@ -82,11 +87,13 @@ public class MainActivity extends AppCompatActivity {
         mila = new Mila();
         hypermall = new Hypermall();
         edostavka = new Edostavka();
+        buslic = new Buslic();
 
         list.addShopNetInList(chistoty);
         list.addShopNetInList(mila);
         list.addShopNetInList(hypermall);
         list.addShopNetInList(edostavka);
+        list.addShopNetInList(buslic);
 
         resultHashMap = new ArrayMap<String, ArrayList<ArrayMap<String, String>>>();
         linkHashMap = new ArrayMap<String, ArrayList<ArrayMap<String, String>>>();
@@ -115,14 +122,19 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonForParsing.setClickable(false);
 
                 textForRequest = textForParsing.getText().toString();
-                while (textForRequest.length() == 0 || Validation.validateOnlySpaces(textForRequest) == false) {
-                    Toast toast = Toast.makeText(MainActivity.this, "Неверный запрос. Введите запрос еще раз", Toast.LENGTH_SHORT);
+                while (textForRequest.length() == 0 ||
+                        !Validation.validateOnlySpaces(textForRequest)) {
+                    Toast toast = Toast.makeText(MainActivity.this, "Неверный " +
+                            "запрос. Введите запрос еще раз", Toast.LENGTH_SHORT);
                     toast.show();
+                    buttonForParsing.setClickable(true);
                     return;
                 }
-                Toast toastMain = Toast.makeText(MainActivity.this, "Ваш запрос обрабатывается", Toast.LENGTH_LONG);
+                Toast toastMain = Toast.makeText(MainActivity.this, "Ваш запрос " +
+                        "обрабатывается", Toast.LENGTH_LONG);
                 toastMain.show();
                 request = new Request(textForRequest);
 
@@ -148,31 +160,32 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnUserManual = findViewById(R.id.btn_user_manual);
-        btnUserManual.setOnClickListener(new View.OnClickListener() {
+
+        View.OnClickListener onClickListener_change_user = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UserManual.class);
                 startActivity(intent);
             }
-        });
+        };
+
+
+        btnUserManual.setOnClickListener(onClickListener_change_user);
 
         playMarket = findViewById(R.id.rateApp);
         playMarket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String playID = "com.dziadkouskaya.findinshop";
-                Uri uri = Uri.parse("market://details?id=" + playID);
-                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                // To count with Play market backstack, After pressing back button,
-                // to taken back to our application, we need to add following flags to intent.
-                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                final String playID = "com.dziadkouskaya.findinshop";
+
                 try {
-                    startActivity(goToMarket);
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + playID)));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+                            ("market://details?id=" + playID)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+                            ("https://play.google.com/store/apps/details?id=" + playID)));
+                } catch (Exception e) {
+                    Log.d("LOG_EXCEPTION", "EXCEPTION");
                 }
             }
         });
@@ -379,6 +392,7 @@ public class MainActivity extends AppCompatActivity {
             list.addShopNetInList(mila);
             list.addShopNetInList(hypermall);
             list.addShopNetInList(edostavka);
+            list.addShopNetInList(buslic);
             request.setRequest("");
 
 
@@ -387,6 +401,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<ResultInfo> mResultInfoList) {
+            /*action for clearning MainActivity after going to the 2 page + making
+            button "Find" Clickable
+            */
 
             Intent intent = new Intent(MainActivity.this, ResultList.class);
             intent.putParcelableArrayListExtra("result"
@@ -395,6 +412,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
             mResultInfoList.clear();
+            buttonForParsing.setClickable(true);
 
 
         }

@@ -6,7 +6,7 @@ android {
         debug {
             storeFile file('D:\\keys\\my_keys_store.jks')
             storePassword 'Kira2010Yana2408'
-            keyAlias = var
+            keyAlias 'findinshop_key'
             keyPassword 'Kira2010Yana2408'
         }
     }
@@ -16,8 +16,8 @@ android {
         applicationId "com.dziadkouskaya.findinshop"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 3
-        versionName "1.2"
+        versionCode 6
+        versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,7 +28,7 @@ android {
     }
     sourceSets {
         main {
-            resources.srcDirs = ['src/main/resources', 'src/main/java/com.dziadkouskaya.findinshop/by.parsing/model/logic/validation']
+            resources.srcDirs = ['src/main/resources']
         }
     }
 

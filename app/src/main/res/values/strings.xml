@@ -30,5 +30,7 @@
     <string name="btnManual">Все понятно</string>
     <string name="rateApp">Оценить приложение</string>
     <string name="privitePoliticy">Я принимаю услования Политики конфиденциальности</string>
+    <string name="about_app">О программе</string>
+
 
 </resources>

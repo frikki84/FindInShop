@@ -1,11 +1,21 @@
 package com.dziadkouskaya.findinshop.by.parsing.model.stringCorrect;
 
 public class StringCorrect {
+    public  static final int INDEX_IN_BUSLIK_DELETE_OT_FROM_PRICE = 3;
+
     public static String priceRubCorrection(String price) {
         String value = "р";
         if (price.contains(value)) {
             int index = price.indexOf(value);
             price = price.substring(0, index).trim();
+        }
+        return price;
+    }
+
+    public static String priceCorrectionFrom_OT(String price) {
+        String value = "от "; // "от 25 руб"
+        if (price.contains(value)) {
+            price = price.substring(INDEX_IN_BUSLIK_DELETE_OT_FROM_PRICE).trim();
         }
         return price;
     }
