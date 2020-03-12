@@ -29,8 +29,10 @@ import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Edostavka;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Hypermall;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Mila;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.OstrovChistoty;
+import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Oz;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.ShopList;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.ShopNet;
+import com.dziadkouskaya.findinshop.by.parsing.model.entity.shops.Wildberries;
 import com.dziadkouskaya.findinshop.by.parsing.model.logic.addElementsToHashMap.HashMapElementsAddition;
 import com.dziadkouskaya.findinshop.by.parsing.model.logic.structuresForComparison.CompareHashMap;
 import com.dziadkouskaya.findinshop.by.parsing.model.logic.validation.Validation;
@@ -44,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     Mila mila;
     Edostavka edostavka;
     Buslic buslic;
+    Oz oz;
+    //Wildberries wildberries;
+
 
     ShopList list;
     ShopList listCopy;
@@ -88,12 +93,18 @@ public class MainActivity extends AppCompatActivity {
         hypermall = new Hypermall();
         edostavka = new Edostavka();
         buslic = new Buslic();
+        oz = new Oz();
+        //wildberries = new Wildberries();
 
         list.addShopNetInList(chistoty);
         list.addShopNetInList(mila);
         list.addShopNetInList(hypermall);
         list.addShopNetInList(edostavka);
+        list.addShopNetInList(oz);
         list.addShopNetInList(buslic);
+
+        //list.addShopNetInList(wildberries);
+
 
         resultHashMap = new ArrayMap<String, ArrayList<ArrayMap<String, String>>>();
         linkHashMap = new ArrayMap<String, ArrayList<ArrayMap<String, String>>>();
@@ -392,8 +403,13 @@ public class MainActivity extends AppCompatActivity {
             list.addShopNetInList(mila);
             list.addShopNetInList(hypermall);
             list.addShopNetInList(edostavka);
+            list.addShopNetInList(oz);
             list.addShopNetInList(buslic);
+
+           // list.addShopNetInList(wildberries);
             request.setRequest("");
+
+
 
 
             return mResultInfoList;

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.dziadkouskaya.findinshop.by.parsing.model.entity.results.ResultInfo;
 import com.squareup.picasso.Picasso;
 
@@ -40,7 +42,7 @@ public class ResultList extends AppCompatActivity {
                 finish();
             }
         };
-    backButton.setOnClickListener(onClickListener);
+        backButton.setOnClickListener(onClickListener);
 
         Intent intent = getIntent();
         ArrayList<ResultInfo> mListResults = intent.getParcelableArrayListExtra("result");
@@ -101,7 +103,6 @@ public class ResultList extends AppCompatActivity {
                 startActivity(intentPageProduct);
 
 
-
             }
         };
 
@@ -125,18 +126,31 @@ public class ResultList extends AppCompatActivity {
 
         public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
             try {
-                Picasso.get().load(mResultInfo.get(position).getImageUrl()).fit().centerInside()
-                        .into(holder.productPhoto);
 
-                holder.productName.setText(mResultInfo.get(position).getProductName());
+                /*Log.d("LOG_GIF", mResultInfo.get(position).getImageUrl().substring((mResultInfo.get(position)
+                        .getImageUrl().length()-4)));
+                if (!mResultInfo.get(position).getImageUrl().substring((mResultInfo.get(position)
+                        .getImageUrl().length()-4)).equals("gif")) {
+                    Picasso.get().load(mResultInfo.get(position).getImageUrl()).fit().centerInside()
+                            .into(holder.productPhoto);
+                } else {
 
-                holder.shopPriceInfo.setText(shopPriceInfo.get(position));
-                holder.link.setText(linkList.get(position));
+*/
+                    Glide.with(ResultList.this)
+                            .load(mResultInfo.get(position).getImageUrl())
+                            .centerInside()
+                            .into(holder.productPhoto);
 
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                    holder.productName.setText(mResultInfo.get(position).getProductName());
+
+                    holder.shopPriceInfo.setText(shopPriceInfo.get(position));
+                    holder.link.setText(linkList.get(position));
+
+
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
 
 
         }

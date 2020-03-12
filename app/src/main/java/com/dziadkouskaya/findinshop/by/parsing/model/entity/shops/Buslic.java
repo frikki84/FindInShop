@@ -82,7 +82,7 @@ public class Buslic extends ShopNet {
             //request for each page with results for search in the shop
             for (int i = 1; i <= lastPage; i++) {
                 pagesWithResualtsOfSearch = urlRequest + i;
-                Log.d("LOGG_link", pagesWithResualtsOfSearch);
+                //Log.d("LOGG_link", pagesWithResualtsOfSearch);
 
 
                 //search elements on each page of search
@@ -101,6 +101,7 @@ public class Buslic extends ShopNet {
                     name = StringCorrect.stringCorrectForParsing(name);
 
                     image = getMainUrl() + element.select("img").attr("src");
+                    //Log.d("LOG_BUSLIK_photo", image);
 
                     link = getMainUrl() + element.select("p > a").attr("href");
 
